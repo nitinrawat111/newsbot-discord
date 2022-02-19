@@ -54,16 +54,20 @@ async def sendMultipleMessages(messages, channel):
 
 @client.event
 async def on_message(message):
-  if(message.author != client.user and message.content.startswith("$")):
-    command = message.content.split()
-    commandLength = len(command)
-
-    if(command[0] == "$top" and commandLength == 1):
-      topHeadlines = await getTopHeadlines();
+  if(message.author != client.user):
+    if(message.content == "$top"):
+      topHeadlines = await getTopHeadlines(urlNeeded = True);
       await sendMultipleMessages(topHeadlines, message.channel)
-    elif(command[0] == "$q" and commandLength > 1):
-      query = " ".join(command[1:])
-      queryResults = await getHeadlinesFromQuery(query)
+    elif(message.content == "$tops"):
+      topHeadlines = await getTopHeadlines(urlNeeded = False);
+      await sendMultipleMessages(topHeadlines, message.channel)
+    elif(message.content.startswith("$q ")):
+      query = message.content[3:]
+      queryResults = await getHeadlinesFromQuery(query, urlNeeded = True)
+      await sendMultipleMessages(queryResults, message.channel)
+    elif(message.content.startswith("$qs ")):
+      query = message.content[4:]
+      queryResults = await getHeadlinesFromQuery(query, urlNeeded = False)
       await sendMultipleMessages(queryResults, message.channel)
 
 client.run(os.environ['TOKEN'])
