@@ -52,9 +52,9 @@ A discord bot which fetches news from multiple sources. It is build using dicord
 |           Commands               |                Description                                               |
 |----------------------------------|--------------------------------------------------------------------------|
 |            $top                  | Displays top 5 headlines in the text channel.                            |
-|            $q <query>            | Searches for news articles with "query". It can be of multiple words.<br>Advanced Search is also supported.<br> - Surround phrases with quotes (") for exact match.<br>- Prepend words or phrases that must appear with a + symbol.<br>- Prepend words that must not appear with a - symbol.<br>- You can use the AND / OR / NOT keywords.|
+|            $q \<query>            | Searches for news articles with "query". It can be of multiple words.<br>Advanced Search is also supported.<br> - Surround phrases with quotes (") for exact match.<br>- Prepend words or phrases that must appear with a + symbol.<br>- Prepend words that must not appear with a - symbol.<br>- You can use the AND / OR / NOT keywords.|
 |            $tops                 | Same as $top but it does not send links along with headlines. Useful when you want to reduce clutter due to link preview.|
-|            $qs <query>           | Same as $q <query> but it does not send links along with headlines. |
+|            $qs \<query>           | Same as $q <query> but it does not send links along with headlines. |
                                       
 
 ## Contributions and Support
